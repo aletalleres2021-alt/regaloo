@@ -287,3 +287,32 @@ button:hover {
     margin: 0;
     max-width: 500px;
 }
+
+/* ACOMODAR LOS RECUERDOS EN CELULAR */
+@media (max-width: 600px) {
+    .momento-contenido {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 20px;
+        box-sizing: border-box;
+    }
+
+    .momento-contenido img {
+        display: block;
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        object-fit: contain;
+        margin: 0 auto;
+    }
+
+    .momento-contenido p {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        overflow-wrap: break-word;
+    }
+}
