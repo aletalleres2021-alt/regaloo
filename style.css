@@ -1,29 +1,15 @@
+```css
+/* CONFIGURACIÓN GENERAL */
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     min-height: 100vh;
     background: #ffd6e7;
     font-family: Arial, sans-serif;
-}
-
-/* PORTADA */
-
-.portada {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.portada > * {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.portada .torta {
-    font-size: 80px;
-    margin-bottom: 15px;
 }
 
 h1 {
@@ -41,6 +27,7 @@ h2 {
 p {
     font-size: 18px;
     color: #704052;
+    overflow-wrap: break-word;
 }
 
 button {
@@ -58,20 +45,40 @@ button:hover {
     transform: scale(1.03);
 }
 
-/* MENÚ */
+/* PORTADA */
 
-.menu {
+.portada {
     min-height: 100vh;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 40px 20px;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     text-align: center;
+    padding: 20px;
+}
+
+.portada > * {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.portada .torta {
+    font-size: 80px;
+    margin-bottom: 15px;
+}
+
+/* MENÚ PRINCIPAL */
+
+.menu {
+    min-height: 100vh;
+    width: 100%;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
 }
 
 .menu h1 {
@@ -86,38 +93,42 @@ button:hover {
 .menu button {
     display: block;
     width: 280px;
+    max-width: 100%;
     margin: 10px auto;
 }
+
+/* FOTOS DEL MENÚ */
 
 .fotos-menu {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    width: 100%;
     flex-wrap: wrap;
+    gap: 24px;
+    width: 100%;
     margin: 20px auto;
 }
 
 .fotos-menu img {
+    display: block;
     width: min(40%, 180px);
     height: 180px;
     object-fit: cover;
     border-radius: 12px;
 }
+
 .fotos-menu img:first-child {
-    left: 40px;
     transform: rotate(-6deg);
 }
-}
 
-/* CORAZONES */
+/* CORAZONES DE FONDO */
 
 .corazones-fondo {
     position: absolute;
     inset: 0;
     pointer-events: none;
     z-index: 0;
+    overflow: hidden;
 }
 
 .corazones-fondo span {
@@ -140,7 +151,9 @@ button:hover {
     left: 22%;
 }
 
-
+.corazones-fondo span:nth-child(4) {
+    top: 20%;
+    right: 20%;
 }
 
 .corazones-fondo span:nth-child(5) {
@@ -163,7 +176,9 @@ button:hover {
     left: 5%;
 }
 
-
+.corazones-fondo span:nth-child(9) {
+    top: 35%;
+    right: 35%;
 }
 
 .corazones-fondo span:nth-child(10) {
@@ -176,6 +191,8 @@ button:hover {
 .menu-centro {
     position: relative;
     z-index: 2;
+    width: fit-content;
+    max-width: 100%;
     padding: 30px 40px;
     border-radius: 30px;
     background: white;
@@ -184,12 +201,11 @@ button:hover {
     text-align: center;
 }
 
-/* CARTAS */
+/* MENÚ DE CARTAS */
 
 .cartas {
     position: relative;
     min-height: 100vh;
-    box-sizing: border-box;
     padding: 50px 20px;
     background: #ffd6e7;
     text-align: center;
@@ -209,35 +225,37 @@ button:hover {
 .cartas button {
     display: block;
     width: 320px;
-    max-width: 90%;
+    max-width: 100%;
     margin: 15px auto;
 }
 
-/* TARJETA DE CARTAS */
+/* TARJETA CENTRAL DE CARTAS */
 
 .cartas-centro {
     position: relative;
     z-index: 2;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
     padding: 30px 40px;
     border-radius: 30px;
     background: white;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     border: 5px solid #e86a9b;
     text-align: center;
-    width: fit-content;
-    max-width: 90%;
-    margin: 0 auto;
 }
 
-/* HIDDEN */
+/* ELEMENTOS OCULTOS */
 
 [hidden] {
     display: none !important;
-}/* CARTA INDIVIDUAL */
+}
+
+/* CARTAS Y RECUERDOS INDIVIDUALES */
 
 .carta-individual {
     min-height: 100vh;
-    box-sizing: border-box;
+    width: 100%;
     padding: 60px 25px;
     background: #ffd6e7;
     text-align: center;
@@ -249,7 +267,8 @@ button:hover {
     margin-bottom: 30px;
 }
 
-.carta-individual p {
+.carta-individual > p {
+    width: 100%;
     max-width: 700px;
     margin: 0 auto;
     padding: 35px;
@@ -264,55 +283,159 @@ button:hover {
 
 .carta-individual button {
     margin-top: 35px;
-}.momento-contenido {
-    max-width: 900px;
-    margin: 0 auto;
+}
+
+/* RECUERDOS: FOTO Y TEXTO */
+
+.momento-contenido {
     display: flex;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-start;
     justify-content: center;
     gap: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .momento-contenido img {
-    width: 320px !important;
-    height: auto !important;
-    object-fit: contain !important;
+    display: block;
+    width: 320px;
+    max-width: 45%;
+    height: auto;
+    flex-shrink: 0;
+    object-fit: contain;
     border-radius: 20px;
     border: 6px solid white;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
-
 .momento-contenido p {
-    margin: 0;
+    flex: 1;
+    min-width: 0;
     max-width: 500px;
+    margin: 0;
+    padding: 25px;
+    background: white;
+    border: 5px solid #e86a9b;
+    border-radius: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    color: #704052;
+    font-size: 19px;
+    line-height: 1.7;
+    text-align: left;
 }
 
-/* ACOMODAR LOS RECUERDOS EN CELULAR */
+/* AJUSTES PARA CELULARES */
+
 @media (max-width: 600px) {
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    .portada {
+        padding: 20px;
+    }
+
+    .menu {
+        padding: 25px 15px;
+    }
+
+    .menu h1 {
+        font-size: 30px;
+    }
+
+    .menu-centro {
+        width: 100%;
+        padding: 25px 15px;
+    }
+
+    .menu button {
+        width: 100%;
+        max-width: 320px;
+        font-size: 16px;
+    }
+
+    .fotos-menu {
+        gap: 16px;
+    }
+
+    .fotos-menu img {
+        width: min(42%, 160px);
+        height: 150px;
+    }
+
+    .fotos-menu img:first-child {
+        transform: rotate(-4deg);
+    }
+
+    .cartas {
+        padding: 30px 15px;
+    }
+
+    .cartas-centro {
+        width: 100%;
+        padding: 25px 15px;
+    }
+
+    .cartas h1 {
+        font-size: 30px;
+    }
+
+    .cartas button {
+        width: 100%;
+        max-width: 320px;
+        font-size: 16px;
+    }
+
+    .carta-individual {
+        padding: 30px 15px;
+    }
+
+    .carta-individual h1 {
+        font-size: 30px;
+        margin-bottom: 22px;
+    }
+
+    .carta-individual > p {
+        padding: 22px 18px;
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
+    /* EN CELULAR: FOTO ARRIBA Y TEXTO DEBAJO */
+
     .momento-contenido {
-        display: flex;
         flex-direction: column;
         align-items: center;
-        width: 100%;
         gap: 20px;
-        box-sizing: border-box;
+        width: 100%;
     }
 
     .momento-contenido img {
-        display: block;
         width: 100%;
         max-width: 280px;
         height: auto;
-        object-fit: contain;
-        margin: 0 auto;
+        flex-shrink: 1;
     }
 
     .momento-contenido p {
         width: 100%;
         max-width: 100%;
-        box-sizing: border-box;
-        margin: 0;
-        overflow-wrap: break-word;
+        flex: none;
+        padding: 20px 18px;
+        font-size: 17px;
+        line-height: 1.6;
+        overflow-wrap: anywhere;
+    }
+
+    .carta-individual button {
+        max-width: 100%;
     }
 }
+```
