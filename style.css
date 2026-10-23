@@ -89,27 +89,26 @@ button:hover {
     margin: 10px auto;
 }
 
-.fotos-menu img {
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 20px;
-    top: 20px;
-    border: 6px solid white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+.fotos-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 20px auto;
 }
 
+.fotos-menu img {
+    width: min(40%, 180px);
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+}
 .fotos-menu img:first-child {
     left: 40px;
     transform: rotate(-6deg);
 }
-
-.fotos-menu img:last-child {
-    right: 40px;
-    width: 220px;
-    height: 150px;
-    transform: rotate(6deg);
 }
 
 /* CORAZONES */
